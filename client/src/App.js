@@ -1,24 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Mac from "./pages/Mac";
+import Windows from "./pages/Windows";
+import iOS from "./pages/iOS";
+import Android from "./pages/Android";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+        <Routes>
+          <Route path="/Mac" element={<Mac />} />
+          <Route path="/Windows" element={<Windows />} />
+          <Route path="/iOS" element={<iOS />} />
+          <Route path="/Android" element={<Android />} />
+          <Route path="*" element={<div>Page Not Found</div>} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
